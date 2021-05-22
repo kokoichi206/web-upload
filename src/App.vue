@@ -1,40 +1,13 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <Counter name="Counter 1" :initCount="5" @emitUp="getEvent"/>
-    <Counter name="Counter 2" :initCount="10" @emitUp="getEvent" />
-    <p>
-      EventStack:
-      {{ stack }}
-    </p>
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div id="nav">
+      <router-link to="/">Home</router-link> |
+      <router-link to="/about">About</router-link> |
+      <router-link to="/count">Count</router-link>
+    </div>
+    <router-view/>
   </div>
 </template>
-
-<script>
-import HelloWorld from './components/HelloWorld.vue'
-import Counter from './components/Counter.vue'
-
-export default {
-  name: 'App',
-  components: {
-    HelloWorld,
-    Counter
-  },
-  data(){
-    return {
-      stack: []
-    }
-  },
-  methods: {
-    // ほえー
-    // こうやって勝手に引数に入るんだ....
-    getEvent(payload){
-      this.stack.push(payload)
-    }
-  }
-}
-</script>
 
 <style>
 #app {
@@ -43,6 +16,16 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+}
+
+#nav {
+  padding: 30px;
+}
+#nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+&.router-link-exact-active {
+  color: #42b983;
 }
 </style>
