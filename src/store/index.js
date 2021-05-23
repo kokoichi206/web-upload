@@ -17,6 +17,10 @@ export default new Vuex.Store({
     },
     setGithubProfile(state, payload){
       state.profile = payload;
+    },
+    setGithubRepos(state, payload){
+      // payload = Object.keys(payload)
+      state.repos = payload;
     }
   },
   actions: {
@@ -32,6 +36,17 @@ export default new Vuex.Store({
         return res.json();
       });
       store.commit("setGithubProfile", response);
+
+      const respo = await fetch(
+        `https://api.github.com/users/${payload.user_id}/repos`).then((res) => {
+        return res.json();
+      });
+      console.log(respo)
+      let repo_all = {};
+      for( let i=0; i<respo.length; i++ ){
+        repo_all[respo[i].name] = respo[i].html_url
+      }
+      store.commit("setGithubRepos", repo_all);
     }
   },
   modules: {

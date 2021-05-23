@@ -10,12 +10,20 @@
 ### 公開できるようにビルドする
 1. buildで使用するフォルダを変更する
    1. プロジェクトディレクトリ(以下、root)直下にdistフォルダがあれば、docsに変更する（github pagesのデフォルトがdocsのため）
-   2. root直下に、`vue.config.js`ファイルを作成し、以下を記述
+   2. root直下に、`vue.config.js`ファイルを作成し、~~以下を記述~~
     ```
     module.exports = {
       outputDir: 'docs',
       assetsDir: './',
       publicPath: './'
+    }
+    ```
+    上だと、VueRouterを入れるとうまくいかなかった。[このサイト](https://r17n.page/2019/10/22/github-pages-with-vue-router/)を参考に、次のように変更（web-uploadのところは自分のリポジトリ名）
+    ```
+    module.exports = {
+      outputDir: 'docs',
+      assetsDir: './',
+      publicPath: '/web-upload'
     }
     ```
 2. buildする

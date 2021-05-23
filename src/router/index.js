@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-import Paging from '../views/Paging.vue'
+// import Paging from '../views/Paging.vue'
 
 Vue.use(VueRouter)
 
@@ -27,12 +27,12 @@ const routes = [
     // @は、src配下からの相対パスを表すエイリアス
     component: () => import(/* webpackChunkName: "count" */ '@/views/Count.vue')
   },
-  {
-    path: '/paging/:page',
-    // nameは名前付きルートのためのオプションなのでなくても良い
-    // @は、src配下からの相対パスを表すエイリアス
-    component: Paging
-  }
+  // {
+  //   path: '/paging/:page',
+  //   // nameは名前付きルートのためのオプションなのでなくても良い
+  //   // @は、src配下からの相対パスを表すエイリアス
+  //   component: Paging
+  // }
 ]
 
 const router = new VueRouter({
