@@ -1,5 +1,5 @@
 # 静的サイト
-- [アップテスト](https://kokoichi206.github.io/web-upload/)
+- [アップテスト](https://kokoichi206.github.io/web-upload/index.html)
 - 環境
   - vue --version: @vue/cli 4.5.13
   - パッケージマネージャー: Yarn
